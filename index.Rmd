@@ -15,9 +15,9 @@ output:
 * Check out the [Enrollment FAQ](faq.html)
 * FISH 552 is the 1st in a series of 2 courses. 
   * FISH 552 runs for 5 weeks: Wednesday 09/30/2020 to Wednesday 10/28/2020
-  * FISH 553 runs for the remaining 5 weeks: Monday 10/31/2020 to Wednesday 12/09/2020
+  * [FISH 553](https://kpjohnson.github.io/fish553/) runs for the remaining 5 weeks: Monday 10/31/2020 to Wednesday 12/09/2020
 * How to enroll: The Autumn 2020 SLN for FISH 552 is 15320
-* How to enroll: The Autumn 2020 SLN for FISH 553 is 15321
+* How to enroll: The Autumn 2020 SLN for [FISH 553](https://kpjohnson.github.io/fish553/) is 15321
 * You have to enroll in FISH 552 and 553 separately, if you want to take both.
 * You can enroll in just FISH 552 or 553 if this suits your educational goals
 * **I am preparing this 2020 course as a synchronous online offering--this means that we will meet during our scheduled course time via Zoom**
@@ -58,7 +58,7 @@ First class meeting: 09/30/2020
 
 Last class meeting: 10/28/2020
 
-Followed immediately by 10 lectures of FISH 553 Advanced R Programming from 10/31/2020 to 12/09/2020 (requires separate enrollment).
+[Followed immediately by 10 lectures of FISH 553 Advanced R Programming from 10/31/2020 to 12/09/2020](https://kpjohnson.github.io/fish553/) (requires separate enrollment).
 
 <br>
 
