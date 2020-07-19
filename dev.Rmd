@@ -18,7 +18,7 @@ This section focuses on the pedagogy used to design and implement this course. T
 
 # Course Modules
 
-There are 4 course modules: R Basics, Working with Data, Plotting Data, and Data Manipulation. The following sections were created following the Understanding by Design (i.e., Backwards Design) framework developed by Wiggins and McTighe. 
+There are 6 course modules: R Basics, Working with Data, Plotting Data, Data Manipulation, Statistics in R, and Functions. The following sections were created following the Understanding by Design (i.e., Backwards Design) framework developed by Wiggins and McTighe. 
 
 <br>
 
