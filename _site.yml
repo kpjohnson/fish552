@@ -7,6 +7,8 @@ navbar:
       href: index.html
     - text: "Enrollment FAQ"
       href: faq.html
+    - text: "Development"
+      href: dev.html
 output:
   html_document: 
     theme: flatly

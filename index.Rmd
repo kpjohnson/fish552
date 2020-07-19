@@ -1,5 +1,5 @@
 ---
-title: "Introduction to R Programming"
+title: "Introduction to R Programming - Syllabus"
 subtitle: "FISH 552 &nbsp; &nbsp; University of Washington &nbsp; &nbsp; Autumn 2020"
 output:
   html_document:

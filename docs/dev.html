@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Introduction to R Programming - Course Development</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">FISH 552</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="index.html">Syllabus</a>
+</li>
+<li>
+  <a href="faq.html">Enrollment FAQ</a>
+</li>
+<li>
+  <a href="dev.html">Development</a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Introduction to R Programming - Course Development</h1>
+<h3 class="subtitle">FISH 552     University of Washington     Autumn 2020</h3>
+
+</div>
+
+
+<p><br></p>
+<div id="welcome" class="section level1">
+<h1>Welcome!</h1>
+<p>This section focuses on the pedagogy used to design and implement this course. The information provided here is predominantly for collaborations with fellow instructors and students are not expected to read through here (but you are more than welcome to if you are curious).</p>
+<p><br></p>
+</div>
+<div id="course-modules" class="section level1">
+<h1>Course Modules</h1>
+<p>There are 4 course modules: R Basics, Working with Data, Plotting Data, and Data Manipulation. The following sections were created following the Understanding by Design (i.e., Backwards Design) framework developed by Wiggins and McTighe.</p>
+<p><br></p>
+<div id="r-basics" class="section level2">
+<h2>R Basics</h2>
+<p><br></p>
+<div id="desired-results" class="section level3">
+<h3>Desired results</h3>
+<p><br></p>
+<div id="established-goals" class="section level4">
+<h4>Established goals</h4>
+<p>Upon completion of this module (and beyond), students will understand the following big ideas:</p>
+<ul>
+<li><p>The R programming language is used for statistics, data analysis, and data visualization.</p></li>
+<li><p>Open science and reproducible research improve the reliability and efficiency of scientific research.</p></li>
+<li><p>Improving reliability and efficiency in our research increases the credibility of published scientific literature and accelerates discovery.</p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="transfer" class="section level4">
+<h4>Transfer</h4>
+<p><em>Students will be able to independently use their learning to…</em></p>
+<ul>
+<li><p>implement principles of open science and reproducibility when designing their own research projects.</p></li>
+<li><p>use R and RStudio as the basis for manipulating, analyzing, and visualizing their data.</p></li>
+<li><p>use R and RStudio to explore analyses and data visualizations created by other scientists (<em>e.g.</em>, to critically review, collaborate with, or build upon their research).</p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="meaning" class="section level4">
+<h4>Meaning</h4>
+<table class="table table-striped" style="font-size: 14px; ">
+<thead>
+<tr>
+<th style="text-align:left;">
+Students will understand…
+</th>
+<th style="text-align:left;">
+Essential Questions
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+the mission of open science.
+</td>
+<td style="text-align:left;">
+Example related to open science
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+the history of R.
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+the role R plays in reproducible science.
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+</div>
+<div id="acquisition" class="section level4">
+<h4>Acquisition</h4>
+<table class="table table-striped" style="font-size: 14px; ">
+<thead>
+<tr>
+<th style="text-align:left;">
+Students will know how to…
+</th>
+<th style="text-align:left;">
+Students will be skilled at…
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+define what R is.
+</td>
+<td style="text-align:left;">
+creating an R script.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+define what RStudio is.
+</td>
+<td style="text-align:left;">
+setting the working directory in RStudio.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+define an object in R.
+</td>
+<td style="text-align:left;">
+creating a project in RStudio.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+define data types of R objects.
+</td>
+<td style="text-align:left;">
+finding the help file(s) for a function or package.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+define a vector.
+</td>
+<td style="text-align:left;">
+using #comments to annotate R scripts.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+assigning an object a value.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+printing an object value to the R Console.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+finding the data type of an object.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+creating a vector.
+</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+</div>
+</div>
+<div id="evidence" class="section level3">
+<h3>Evidence</h3>
+<p>TBA</p>
+<p><br></p>
+</div>
+<div id="learning-plan" class="section level3">
+<h3>Learning plan</h3>
+<p>TBA</p>
+<p><br></p>
+</div>
+</div>
+<div id="working-with-data" class="section level2">
+<h2>Working with Data</h2>
+<p><br></p>
+<div id="desired-results-1" class="section level3">
+<h3>Desired results</h3>
+<p><br></p>
+<div id="established-goals-1" class="section level4">
+<h4>Established goals</h4>
+<p>Upon completion of this module (and beyond), students will understand the following big ideas:</p>
+<ul>
+<li><p>R is a well-supported framework for data exploration.</p></li>
+<li><p>Data collection can produce data structures that need to be rearranged for statistical analyses.</p></li>
+<li><p>Understanding the data types and structures used in R is helpful for troubleshooting error messages.</p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="transfer-1" class="section level4">
+<h4>Transfer</h4>
+<p><em>Students will be able to independently use their learning to…</em></p>
+<ul>
+<li><p>plan their data collection scheme to match the format required for the intended statistical analysis</p></li>
+<li><p>critically evaluate documentation and data sets collected by other scientists</p></li>
+<li><p>diagnose programming errors that are related to R-specific data types and structures</p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="meaning-1" class="section level4">
+<h4>Meaning</h4>
+<table class="table table-striped" style="font-size: 14px; ">
+<thead>
+<tr>
+<th style="text-align:left;">
+Students will understand…
+</th>
+<th style="text-align:left;">
+Essential Questions
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+that data formats vary &amp; may need to be changed for analysis.
+</td>
+<td style="text-align:left;">
+How does R help me explore data?
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+the intended purpose of each data type and structure.
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+that data types and structures are key to solving programming errors.
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+</div>
+<div id="acquisition-1" class="section level4">
+<h4>Acquisition</h4>
+<table class="table table-striped" style="font-size: 14px; ">
+<thead>
+<tr>
+<th style="text-align:left;">
+Students will know how to…
+</th>
+<th style="text-align:left;">
+Students will be skilled at…
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+define a data frame.
+</td>
+<td style="text-align:left;">
+reading in a data file into RStudio.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+define a matrix.
+</td>
+<td style="text-align:left;">
+creating an array.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+define an array.
+</td>
+<td style="text-align:left;">
+creating a matrix.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+define a list.
+</td>
+<td style="text-align:left;">
+creating a list.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+define a factor.
+</td>
+<td style="text-align:left;">
+creating a data frame.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+creating a factor.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+finding the dimensions of a data structure.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+subsetting a vector.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+using Boolean operators.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+subsetting a vector using Boolean operators.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+extracting column names from a data frame.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+extracting columns of a data frame by name.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+extracting columns of a data frame by indices.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+extracting columns of a data frame using Boolean operators.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+removing NA from objects (e.g., data frame, matrix, or list).
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+extracting elements from a list.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+replacing elements in an object (e.g., data frame, matrix, or list).
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="plotting-data" class="section level2">
+<h2>Plotting Data</h2>
+<p><br></p>
+<div id="desired-results-2" class="section level3">
+<h3>Desired results</h3>
+<p><br></p>
+<div id="established-goals-2" class="section level4">
+<h4>Established goals</h4>
+<p>Upon completion of this module (and beyond), students will understand the following big ideas:</p>
+<ul>
+<li><p>R provides a toolkit for quickly visualizing data before analysis.</p></li>
+<li><p>R users can produce high quality figures for publications, reports, etc.</p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="transfer-2" class="section level4">
+<h4>Transfer</h4>
+<p><em>Students will be able to independently use their learning to…</em></p>
+<ul>
+<li><p>quickly produce exploratory plots of new data sets.</p></li>
+<li><p>create multi-panel figures.</p></li>
+<li><p>customize legends, plot axes, and plot types.</p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="meaning-2" class="section level4">
+<h4>Meaning</h4>
+<table class="table table-striped" style="font-size: 14px; ">
+<thead>
+<tr>
+<th style="text-align:left;">
+Students will understand…
+</th>
+<th style="text-align:left;">
+Essential Questions
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+the first step of data exploration is to plot your data.
+</td>
+<td style="text-align:left;">
+How does R help me visualize data?
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+that using ?par is a best practice of plotting in base R.
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+</div>
+<div id="acquisition-2" class="section level4">
+<h4>Acquisition</h4>
+<table class="table table-striped" style="font-size: 14px; ">
+<thead>
+<tr>
+<th style="text-align:left;">
+Students will know how to…
+</th>
+<th style="text-align:left;">
+Students will be skilled at…
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+define and navigate the par() function.
+</td>
+<td style="text-align:left;">
+using the x and y arguments of plot() to create a plot.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+define and navigate the plot() function.
+</td>
+<td style="text-align:left;">
+labeling the x- and y-axes and title.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+defining the x- and y-limits.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+removing the space around zero on the x- and y- axes.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+changing the color of points, lines, text, etc..
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+changing the point characteristics (pch) or line type (lty).
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+changing the character expansion (cex) or line width (lwd) of data.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+adding an accurate legend.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+suppressing the axes inside the call to plot().
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+creating custom axes for a plot (e.g, axis(), xaxp and yaxp arguments in plot().
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+adding text to the inside of a plot.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+changing the type of plot (e.g., points, lines, etc).
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+adding additional lines() or points() to an existing plot.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+using par(mfrow) or par(mfcol) to create a multi-panel plot.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+using par(mar) or par(oma) to manipulate the margins of a multi-panel plot.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+using mtext() to add text to the outside of a plot.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+using layout() to creat a multi-panel plot.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+creating a boxplot.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+creating a barplot.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+saving plots as a pdf().
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="data-manipulation" class="section level2">
+<h2>Data Manipulation</h2>
+<p><br></p>
+<div id="desired-results-3" class="section level3">
+<h3>Desired results</h3>
+<p><br></p>
+<div id="established-goals-3" class="section level4">
+<h4>Established goals</h4>
+<p>Upon completion of this module (and beyond), students will understand the following big ideas:</p>
+<ul>
+<li><p>R is a well-supported framework for data cleaning.</p></li>
+<li><p>Data types and structures dictate the way data can be subset and analyzed.</p></li>
+<li><p>R has helpful features for working with date and time data.</p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="transfer-3" class="section level4">
+<h4>Transfer</h4>
+<p><em>Students will be able to independently use their learning to…</em></p>
+<ul>
+<li><p>subset large data sets for future data exploration and research projects.</p></li>
+<li><p>combine multiple data sets for future data exploration and research projects.</p></li>
+<li><p>perform repetitive arithmetic functions on matrices.</p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="meaning-3" class="section level4">
+<h4>Meaning</h4>
+<table class="table table-striped" style="font-size: 14px; ">
+<thead>
+<tr>
+<th style="text-align:left;">
+Students will understand…
+</th>
+<th style="text-align:left;">
+Essential Questions
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+there are multiple ways to subset data structures.
+</td>
+<td style="text-align:left;">
+How does R help me manipulate data for visualization or analysis?
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+the appropriate scenarios for using an element’s index vs. value.
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+the apply() family of functions can simplify reptitive calculations.
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+</div>
+<div id="acquisition-3" class="section level4">
+<h4>Acquisition</h4>
+<table class="table table-striped" style="font-size: 14px; ">
+<thead>
+<tr>
+<th style="text-align:left;">
+Students will know how to…
+</th>
+<th style="text-align:left;">
+Students will be skilled at…
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+define an R package.
+</td>
+<td style="text-align:left;">
+finding the unique elements in an object.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+define an R library.
+</td>
+<td style="text-align:left;">
+finding the duplicated elements in an object.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+define a Date or POSIXt class.
+</td>
+<td style="text-align:left;">
+using subset() to subset an object.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+look up built in constants in R.
+</td>
+<td style="text-align:left;">
+using apply() to use an arithmetic function on a matrix.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+describe unique() vs. duplicated().
+</td>
+<td style="text-align:left;">
+using tapply() to use an arithmetic function on a matrix using a categorical variable.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+describe sort() vs. order().
+</td>
+<td style="text-align:left;">
+applying sort() and order() to objects.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+look up the apply() family of functions.
+</td>
+<td style="text-align:left;">
+using system.time() to calculate how long it takes to run a command.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+combining two objects using merge().
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+assigning an object a Date or POSIXtclass.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+extracting components of dates.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+applying arithmetic functions to objects of Date class.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+installing a package in RStudio.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+loading a package in RStudio.
+</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="statistics-in-r" class="section level2">
+<h2>Statistics in R</h2>
+<p><br></p>
+<div id="desired-results-4" class="section level3">
+<h3>Desired results</h3>
+<p><br></p>
+<div id="established-goals-4" class="section level4">
+<h4>Established goals</h4>
+<p>Upon completion of this module (and beyond), students will understand the following big ideas:</p>
+<ul>
+<li><p>Diligent R programmers use R help files, Google, Twitter, Stack Exchange, Stack Overflow, etc. to critically evaluate the statistical analyses provided in R packages that they did not write themselves.</p></li>
+<li><p>Think carefully about whether an analysis requires a set.seed() to be reproducible.</p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="transfer-4" class="section level4">
+<h4>Transfer</h4>
+<p><em>Students will be able to independently use their learning to…</em></p>
+<ul>
+<li><p>identify useful packages for conducting statistical analyses in R.</p></li>
+<li><p>create an analysis script that is reproducible on another computer.</p></li>
+<li><p>use base R functions that produce summary statistics.</p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="meaning-4" class="section level4">
+<h4>Meaning</h4>
+<table class="table table-striped" style="font-size: 14px; ">
+<thead>
+<tr>
+<th style="text-align:left;">
+Students will understand…
+</th>
+<th style="text-align:left;">
+Essential Questions
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+the importance of thoroughly investigating statistical packages.
+</td>
+<td style="text-align:left;">
+How do I prepare to conduct a statistical analysis in R?
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+that a set.seed() is required to produce reproducible random number generation in R.
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+where to find the foundational base R functions for summary statistics.
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+</div>
+<div id="acquisition-4" class="section level4">
+<h4>Acquisition</h4>
+<table class="table table-striped" style="font-size: 14px; ">
+<thead>
+<tr>
+<th style="text-align:left;">
+Students will know how to…
+</th>
+<th style="text-align:left;">
+Students will be skilled at…
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+differentiate between the functions for finding the probability, density, quantile, or random numbers from a given probability distribution.
+</td>
+<td style="text-align:left;">
+using set.seed() to create reproducible random number generation.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+locate the built-in probability distributions in R.
+</td>
+<td style="text-align:left;">
+using sample() to randomly draw elements from an object.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+define pseudorandom number generation.
+</td>
+<td style="text-align:left;">
+plotting data using pairs(), hist(), boxplot(), or density().
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+locate functions for data summarization: summary(), fivenum(), sd(), range().
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+locate functions for basic statistical tests built into R.
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+</div>
+</div>
+<div id="evidence-1" class="section level3">
+<h3>Evidence</h3>
+<p>TBA</p>
+<p><br></p>
+</div>
+<div id="learning-plan-1" class="section level3">
+<h3>Learning plan</h3>
+<p>TBA</p>
+<p><br></p>
+</div>
+</div>
+<div id="functions" class="section level2">
+<h2>Functions</h2>
+<p><br></p>
+<div id="desired-results-5" class="section level3">
+<h3>Desired results</h3>
+<p><br></p>
+<div id="established-goals-5" class="section level4">
+<h4>Established goals</h4>
+<p>Upon completion of this module (and beyond), students will understand the following big ideas:</p>
+<ul>
+<li><p>A function is a set of statements organized together to perform a specific task.</p></li>
+<li><p>R has a large number of built-in functions and has access to a large supply of open source and community-created functions.</p></li>
+<li><p>R users can write their own functions to re-use for multiple analyses.</p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="transfer-5" class="section level4">
+<h4>Transfer</h4>
+<p><em>Students will be able to independently use their learning to…</em></p>
+<ul>
+<li><p>critically evaluate the performance of functions found in packages created by other users.</p></li>
+<li><p>write the own functions to re-use in future analyses.</p></li>
+<li><p>use the output of functions to summarize the results of statistical analyses.</p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="meaning-5" class="section level4">
+<h4>Meaning</h4>
+<table class="table table-striped" style="font-size: 14px; ">
+<thead>
+<tr>
+<th style="text-align:left;">
+Students will understand…
+</th>
+<th style="text-align:left;">
+Essential Questions
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+how to determine if a function’s arguments require a specific data type or structure.
+</td>
+<td style="text-align:left;">
+How do I use and write functions in R?
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+how to write their own function and save its output.
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+the difference between the local environment of a function and the global environment of R.
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+</div>
+<div id="acquisition-5" class="section level4">
+<h4>Acquisition</h4>
+<table class="table table-striped" style="font-size: 14px; ">
+<thead>
+<tr>
+<th style="text-align:left;">
+Students will know how to…
+</th>
+<th style="text-align:left;">
+Students will be skilled at…
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+describe the difference between local and global objects (i.e., scope).
+</td>
+<td style="text-align:left;">
+specifying the arguments required for a function.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+identify the different parts of a function.
+</td>
+<td style="text-align:left;">
+return()ing an object local to a function for use in the global environment.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+using a list to return multiple objects local to a function for use in the global environment.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+writing objects to a file (e.g., .csv).
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+</div>
+</div>
+<div id="evidence-2" class="section level3">
+<h3>Evidence</h3>
+<p>TBA</p>
+<p><br></p>
+</div>
+<div id="learning-plan-2" class="section level3">
+<h3>Learning plan</h3>
+<p>TBA</p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="references" class="section level1">
+<h1>References</h1>
+<p><br></p>
+<center>
+<em>This site was last updated at 20:34 on 18 Jul 2020</em>
+</center>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

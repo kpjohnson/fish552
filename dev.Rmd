@@ -1,0 +1,736 @@
+---
+title: "Introduction to R Programming - Course Development"
+subtitle: "FISH 552 &nbsp; &nbsp; University of Washington &nbsp; &nbsp; Autumn 2020"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 3
+---
+
+<br>
+
+# Welcome!
+
+This section focuses on the pedagogy used to design and implement this course. The information provided here is predominantly for collaborations with fellow instructors and students are not expected to read through here (but you are more than welcome to if you are curious).
+
+<br>
+
+# Course Modules
+
+There are 4 course modules: R Basics, Working with Data, Plotting Data, and Data Manipulation. The following sections were created following the Understanding by Design (i.e., Backwards Design) framework developed by Wiggins and McTighe. 
+
+<br>
+
+## R Basics
+
+<br>
+
+### Desired results
+
+<br>
+
+#### Established goals
+Upon completion of this module (and beyond), students will understand the following big ideas:
+
+* The R programming language is used for statistics, data analysis, and data visualization.
+
+* Open science and reproducible research improve the reliability and efficiency of scientific research.
+
+* Improving reliability and efficiency in our research increases the credibility of published scientific literature and accelerates discovery.
+
+<br>
+
+#### Transfer
+*Students will be able to independently use their learning to...*
+
+* implement principles of open science and reproducibility when designing their own research projects.
+
+* use R and RStudio as the basis for manipulating, analyzing, and visualizing their data.
+
+* use R and RStudio to explore analyses and data visualizations created by other scientists (*e.g.*, to critically review, collaborate with, or build upon their research).
+
+<br>
+
+#### Meaning
+
+``` {r RB_meaning, echo=FALSE}
+
+# Dependencies
+library(kableExtra)
+library(captioner)
+
+## set default caption options
+fig_cap <- captioner(suffix = ".", style = "b", style_prefix = TRUE)
+tbl_cap <- captioner(prefix = "Table", suffix = ".",
+                     style = "b", style_prefix = TRUE)
+# Create the empty table
+RB_mean <- data.frame(matrix(nrow=3, ncol=2))
+colnames(RB_mean) <- c("Understandings", "Essential Questions")
+
+# Understandings
+RB_mean[1, 1] <- "the mission of open science."
+RB_mean[2, 1] <- "the history of R."
+RB_mean[3, 1] <- "the role R plays in reproducible science."
+
+# Essential Questions
+RB_mean[1, 2] <- "Example related to open science"
+
+# Hiding NAs
+RB_mean[is.na(RB_mean)] <- ""
+
+# Create the table
+knitr::kable(RB_mean,
+             format = "html",
+             booktabs = TRUE,
+             col.names = c("Students will understand...",
+                           "Essential Questions"),
+             escape = FALSE,
+             row.names = FALSE,
+             align = "l") %>%
+  kable_styling(position = "left", font_size = 14,
+                bootstrap_options = "striped")
+
+```
+
+<br>
+
+#### Acquisition
+
+``` {r RB_acquisition, echo=FALSE}
+
+RB_acq <- data.frame(matrix(nrow=9, ncol=2))
+colnames(RB_acq) <- c("Knowledge", "Skills")
+
+# Knowledge
+RB_acq[1, 1] <- "define what R is."
+RB_acq[2, 1] <- "define what RStudio is."
+RB_acq[3, 1] <- "define an object in R."
+RB_acq[4, 1] <- "define data types of R objects."
+RB_acq[5, 1] <- "define a vector."
+
+# Skills
+RB_acq[1, 2] <- "creating an R script."
+RB_acq[2, 2] <- "setting the working directory in RStudio."
+RB_acq[3, 2] <- "creating a project in RStudio."
+RB_acq[4, 2] <- "finding the help file(s) for a function or package."
+RB_acq[5, 2] <- "using #comments to annotate R scripts."
+RB_acq[6, 2] <- "assigning an object a value."
+RB_acq[7, 2] <- "printing an object value to the R Console."
+RB_acq[8, 2] <- "finding the data type of an object."
+RB_acq[9, 2] <- "creating a vector."
+
+# Hiding NAs
+RB_acq[is.na(RB_acq)] <- ""
+
+# Create the table
+knitr::kable(RB_acq,
+             format = "html",
+             booktabs = TRUE,
+             col.names = c("Students will know how to...",
+                           "Students will be skilled at..."),
+             escape = FALSE,
+             row.names = FALSE,
+             align = "l") %>%
+  kable_styling(position = "left", font_size = 14,
+                bootstrap_options = "striped")
+
+```
+
+<br>
+
+### Evidence
+
+TBA 
+
+<br>
+
+### Learning plan
+
+TBA
+
+<br>
+
+## Working with Data
+
+<br>
+
+### Desired results
+
+<br>
+
+#### Established goals
+Upon completion of this module (and beyond), students will understand the following big ideas:
+
+* R is a well-supported framework for data exploration.
+
+* Data collection can produce data structures that need to be rearranged for statistical analyses.
+
+* Understanding the data types and structures used in R is helpful for troubleshooting error messages.
+
+<br>
+
+#### Transfer
+*Students will be able to independently use their learning to...*
+
+* plan their data collection scheme to match the format required for the intended statistical analysis
+
+* critically evaluate documentation and data sets collected by other scientists
+
+* diagnose programming errors that are related to R-specific data types and structures
+
+
+<br>
+
+#### Meaning
+
+``` {r WD_meaning, echo=FALSE}
+
+# Create the empty table
+WD_mean <- data.frame(matrix(nrow=3, ncol=2))
+colnames(WD_mean) <- c("Understandings", "Essential Questions")
+
+# Understandings
+WD_mean[1, 1] <- "that data formats vary & may need to be changed for analysis."
+WD_mean[2, 1] <- "the intended purpose of each data type and structure."
+WD_mean[3, 1] <- "that data types and structures are key to solving programming errors."
+
+# Essential Questions
+WD_mean[1, 2] <- "How does R help me explore data?"
+
+# Hiding NAs
+WD_mean[is.na(WD_mean)] <- ""
+
+# Create the table
+knitr::kable(WD_mean,
+             format = "html",
+             booktabs = TRUE,
+             col.names = c("Students will understand...",
+                           "Essential Questions"),
+             escape = FALSE,
+             row.names = FALSE,
+             align = "l") %>%
+  kable_styling(position = "left", font_size = 14,
+                bootstrap_options = "striped")
+
+```
+
+<br>
+
+#### Acquisition
+
+``` {r WD_acquisition, echo=FALSE}
+
+WD_acq <- data.frame(matrix(nrow=17, ncol=2))
+colnames(WD_acq) <- c("Knowledge", "Skills")
+
+# Knowledge
+WD_acq[1, 1] <- "define a data frame."
+WD_acq[2, 1] <- "define a matrix."
+WD_acq[3, 1] <- "define an array."
+WD_acq[4, 1] <- "define a list."
+WD_acq[5, 1] <- "define a factor."
+
+# Skills
+WD_acq[1, 2] <- "reading in a data file into RStudio."
+WD_acq[2, 2] <- "creating an array."
+WD_acq[3, 2] <- "creating a matrix."
+WD_acq[4, 2] <- "creating a list."
+WD_acq[5, 2] <- "creating a data frame."
+WD_acq[6, 2] <- "creating a factor."
+WD_acq[7, 2] <- "finding the dimensions of a data structure."
+
+WD_acq[8, 2] <- "subsetting a vector."
+WD_acq[9, 2] <- "using Boolean operators."
+WD_acq[10,2] <- "subsetting a vector using Boolean operators."
+WD_acq[11,2] <- "extracting column names from a data frame."
+WD_acq[12,2] <- "extracting columns of a data frame by name."
+WD_acq[13,2] <- "extracting columns of a data frame by indices."
+WD_acq[14,2] <- "extracting columns of a data frame using Boolean operators."
+WD_acq[15,2] <- "removing NA from objects (e.g., data frame, matrix, or list)."
+WD_acq[16,2] <- "extracting elements from a list."
+WD_acq[17,2] <- "replacing elements in an object (e.g., data frame, matrix, or list)."
+
+# Hiding NAs
+WD_acq[is.na(WD_acq)] <- ""
+
+# Create the table
+knitr::kable(WD_acq,
+             format = "html",
+             booktabs = TRUE,
+             col.names = c("Students will know how to...",
+                           "Students will be skilled at..."),
+             escape = FALSE,
+             row.names = FALSE,
+             align = "l") %>%
+  kable_styling(position = "left", font_size = 14,
+                bootstrap_options = "striped")
+
+```
+
+## Plotting Data
+
+<br>
+
+### Desired results
+
+<br>
+
+#### Established goals
+Upon completion of this module (and beyond), students will understand the following big ideas:
+
+* R provides a toolkit for quickly visualizing data before analysis.
+
+* R users can produce high quality figures for publications, reports, etc.
+
+<br>
+
+#### Transfer
+*Students will be able to independently use their learning to...*
+
+* quickly produce exploratory plots of new data sets.
+
+* create multi-panel figures.
+
+* customize legends, plot axes, and plot types.
+
+
+<br>
+
+#### Meaning
+
+``` {r PD_meaning, echo=FALSE}
+
+# Create the empty table
+PD_mean <- data.frame(matrix(nrow=2, ncol=2))
+colnames(PD_mean) <- c("Understandings", "Essential Questions")
+
+# Understandings
+PD_mean[1, 1] <- "the first step of data exploration is to plot your data."
+PD_mean[2, 1] <- "that using ?par is a best practice of plotting in base R."
+
+# Essential Questions
+PD_mean[1, 2] <- "How does R help me visualize data?"
+
+# Hiding NAs
+PD_mean[is.na(PD_mean)] <- ""
+
+# Create the table
+knitr::kable(PD_mean,
+             format = "html",
+             booktabs = TRUE,
+             col.names = c("Students will understand...",
+                           "Essential Questions"),
+             escape = FALSE,
+             row.names = FALSE,
+             align = "l") %>%
+  kable_styling(position = "left", font_size = 14,
+                bootstrap_options = "striped")
+
+```
+
+<br>
+
+#### Acquisition
+
+``` {r PD_acquisition, echo=FALSE}
+
+PD_acq <- data.frame(matrix(nrow=20, ncol=2))
+colnames(PD_acq) <- c("Knowledge", "Skills")
+
+# Knowledge
+PD_acq[1, 1] <- "define and navigate the par() function."
+PD_acq[2, 1] <- "define and navigate the plot() function."
+
+# Skills
+PD_acq[1, 2] <- "using the x and y arguments of plot() to create a plot."
+PD_acq[2, 2] <- "labeling the x- and y-axes and title."
+PD_acq[3, 2] <- "defining the x- and y-limits."
+PD_acq[4, 2] <- "removing the space around zero on the x- and y- axes."
+PD_acq[5, 2] <- "changing the color of points, lines, text, etc.."
+PD_acq[6, 2] <- "changing the point characteristics (pch) or line type (lty)."
+PD_acq[7, 2] <- "changing the character expansion (cex) or line width (lwd) of data."
+PD_acq[8, 2] <- "adding an accurate legend."
+PD_acq[9, 2] <- "suppressing the axes inside the call to plot()."
+PD_acq[10,2] <- "creating custom axes for a plot (e.g, axis(), xaxp and yaxp arguments in plot()."
+PD_acq[11,2] <- "adding text to the inside of a plot."
+PD_acq[12,2] <- "changing the type of plot (e.g., points, lines, etc)."
+PD_acq[13,2] <- "adding additional lines() or points() to an existing plot."
+PD_acq[14,2] <- "using par(mfrow) or par(mfcol) to create a multi-panel plot."
+PD_acq[15,2] <- "using par(mar) or par(oma) to manipulate the margins of a multi-panel plot."
+PD_acq[16,2] <- "using mtext() to add text to the outside of a plot."
+PD_acq[17,2] <- "using layout() to creat a multi-panel plot."
+PD_acq[18,2] <- "creating a boxplot."
+PD_acq[19,2] <- "creating a barplot."
+PD_acq[20,2] <- "saving plots as a pdf()."
+
+
+# Hiding NAs
+PD_acq[is.na(PD_acq)] <- ""
+
+# Create the table
+knitr::kable(PD_acq,
+             format = "html",
+             booktabs = TRUE,
+             col.names = c("Students will know how to...",
+                           "Students will be skilled at..."),
+             escape = FALSE,
+             row.names = FALSE,
+             align = "l") %>%
+  kable_styling(position = "left", font_size = 14,
+                bootstrap_options = "striped")
+
+```
+
+
+## Data Manipulation
+
+<br>
+
+### Desired results
+
+<br>
+
+#### Established goals
+Upon completion of this module (and beyond), students will understand the following big ideas:
+
+* R is a well-supported framework for data cleaning.
+
+* Data types and structures dictate the way data can be subset and analyzed.
+
+* R has helpful features for working with date and time data.
+
+<br>
+
+#### Transfer
+*Students will be able to independently use their learning to...*
+
+* subset large data sets for future data exploration and research projects.
+
+* combine multiple data sets for future data exploration and research projects.
+
+* perform repetitive arithmetic functions on matrices.
+
+
+<br>
+
+#### Meaning
+
+``` {r DM_meaning, echo=FALSE}
+
+# Create the empty table
+DM_mean <- data.frame(matrix(nrow=3, ncol=2))
+colnames(DM_mean) <- c("Understandings", "Essential Questions")
+
+# Understandings
+DM_mean[1, 1] <- "there are multiple ways to subset data structures."
+DM_mean[2, 1] <- "the appropriate scenarios for using an element's index vs. value."
+DM_mean[3, 1] <- "the apply() family of functions can simplify reptitive calculations."
+
+# Essential Questions
+DM_mean[1, 2] <- "How does R help me manipulate data for visualization or analysis?"
+
+# Hiding NAs
+DM_mean[is.na(DM_mean)] <- ""
+
+# Create the table
+knitr::kable(DM_mean,
+             format = "html",
+             booktabs = TRUE,
+             col.names = c("Students will understand...",
+                           "Essential Questions"),
+             escape = FALSE,
+             row.names = FALSE,
+             align = "l") %>%
+  kable_styling(position = "left", font_size = 14,
+                bootstrap_options = "striped")
+
+```
+
+<br>
+
+#### Acquisition
+
+``` {r DM_acquisition, echo=FALSE}
+
+DM_acq <- data.frame(matrix(nrow=13, ncol=2))
+colnames(DM_acq) <- c("Knowledge", "Skills")
+
+# Knowledge
+DM_acq[1, 1] <- "define an R package."
+DM_acq[2, 1] <- "define an R library."
+DM_acq[3, 1] <- "define a Date or POSIXt class."
+DM_acq[4, 1] <- "look up built in constants in R."
+DM_acq[5, 1] <- "describe unique() vs. duplicated()."
+DM_acq[6, 1] <- "describe sort() vs. order()."
+DM_acq[7, 1] <- "look up the apply() family of functions."
+
+# Skills
+DM_acq[1, 2] <- "finding the unique elements in an object."
+DM_acq[2, 2] <- "finding the duplicated elements in an object."
+DM_acq[3, 2] <- "using subset() to subset an object."
+DM_acq[4, 2] <- "using apply() to use an arithmetic function on a matrix."
+DM_acq[5, 2] <- "using tapply() to use an arithmetic function on a matrix using a categorical variable."
+DM_acq[6, 2] <- "applying sort() and order() to objects."
+DM_acq[7, 2] <- "using system.time() to calculate how long it takes to run a command."
+DM_acq[8, 2] <- "combining two objects using merge()."
+DM_acq[9, 2] <- "assigning an object a Date or POSIXtclass."
+DM_acq[10,2] <- "extracting components of dates."
+DM_acq[11,2] <- "applying arithmetic functions to objects of Date class."
+DM_acq[12,2] <- "installing a package in RStudio."
+DM_acq[13,2] <- "loading a package in RStudio."
+
+
+# Hiding NAs
+DM_acq[is.na(DM_acq)] <- ""
+
+# Create the table
+knitr::kable(DM_acq,
+             format = "html",
+             booktabs = TRUE,
+             col.names = c("Students will know how to...",
+                           "Students will be skilled at..."),
+             escape = FALSE,
+             row.names = FALSE,
+             align = "l") %>%
+  kable_styling(position = "left", font_size = 14,
+                bootstrap_options = "striped")
+
+```
+
+<br>
+
+## Statistics in R
+
+<br>
+
+### Desired results
+
+<br>
+
+#### Established goals
+Upon completion of this module (and beyond), students will understand the following big ideas:
+
+* Diligent R programmers use R help files, Google, Twitter, Stack Exchange, Stack Overflow, etc. to critically evaluate the statistical analyses provided in R packages that they did not write themselves.
+
+* Think carefully about whether an analysis requires a set.seed() to be reproducible.
+
+<br>
+
+#### Transfer
+*Students will be able to independently use their learning to...*
+
+* identify useful packages for conducting statistical analyses in R.
+
+* create an analysis script that is reproducible on another computer.
+
+* use base R functions that produce summary statistics.
+
+<br>
+
+#### Meaning
+
+``` {r SR_meaning, echo=FALSE}
+
+# Create the empty table
+SR_mean <- data.frame(matrix(nrow=3, ncol=2))
+colnames(SR_mean) <- c("Understandings", "Essential Questions")
+
+# Understandings
+SR_mean[1, 1] <- "the importance of thoroughly investigating statistical packages."
+SR_mean[2, 1] <- "that a set.seed() is required to produce reproducible random number generation in R."
+SR_mean[3, 1] <- "where to find the foundational base R functions for summary statistics."
+
+# Essential Questions
+SR_mean[1, 2] <- "How do I prepare to conduct a statistical analysis in R?"
+
+# Hiding NAs
+SR_mean[is.na(SR_mean)] <- ""
+
+# Create the table
+knitr::kable(SR_mean,
+             format = "html",
+             booktabs = TRUE,
+             col.names = c("Students will understand...",
+                           "Essential Questions"),
+             escape = FALSE,
+             row.names = FALSE,
+             align = "l") %>%
+  kable_styling(position = "left", font_size = 14,
+                bootstrap_options = "striped")
+
+```
+
+<br>
+
+#### Acquisition
+
+``` {r SR_acquisition, echo=FALSE}
+
+SR_acq <- data.frame(matrix(nrow=5, ncol=2))
+colnames(SR_acq) <- c("Knowledge", "Skills")
+
+# Knowledge
+SR_acq[1, 1] <- "differentiate between the functions for finding the probability, density, quantile, or random numbers from a given probability distribution."
+SR_acq[2, 1] <- "locate the built-in probability distributions in R."
+SR_acq[3, 1] <- "define pseudorandom number generation."
+SR_acq[4, 1] <- "locate functions for data summarization: summary(), fivenum(), sd(), range()."
+SR_acq[5, 1] <- "locate functions for basic statistical tests built into R."
+
+# Skills
+SR_acq[1, 2] <- "using set.seed() to create reproducible random number generation."
+SR_acq[2, 2] <- "using sample() to randomly draw elements from an object."
+SR_acq[3, 2] <- "plotting data using pairs(), hist(), boxplot(), or density()."
+
+# Hiding NAs
+SR_acq[is.na(SR_acq)] <- ""
+
+# Create the table
+knitr::kable(SR_acq,
+             format = "html",
+             booktabs = TRUE,
+             col.names = c("Students will know how to...",
+                           "Students will be skilled at..."),
+             escape = FALSE,
+             row.names = FALSE,
+             align = "l") %>%
+  kable_styling(position = "left", font_size = 14,
+                bootstrap_options = "striped")
+
+```
+
+<br>
+
+### Evidence
+
+TBA 
+
+<br>
+
+### Learning plan
+
+TBA
+
+<br>
+
+
+## Functions
+
+<br>
+
+### Desired results
+
+<br>
+
+#### Established goals
+Upon completion of this module (and beyond), students will understand the following big ideas:
+
+* A function is a set of statements organized together to perform a specific task.
+
+* R has a large number of built-in functions and has access to a large supply of open source and community-created functions.
+
+* R users can write their own functions to re-use for multiple analyses.
+
+<br>
+
+#### Transfer
+*Students will be able to independently use their learning to...*
+
+* critically evaluate the performance of functions found in packages created by other users.
+
+* write the own functions to re-use in future analyses.
+
+* use the output of functions to summarize the results of statistical analyses.
+
+<br>
+
+#### Meaning
+
+``` {r FR_meaning, echo=FALSE}
+
+# Create the empty table
+FR_mean <- data.frame(matrix(nrow=3, ncol=2))
+colnames(FR_mean) <- c("Understandings", "Essential Questions")
+
+# Understandings
+FR_mean[1, 1] <- "how to determine if a function's arguments require a specific data type or structure."
+FR_mean[2, 1] <- "how to write their own function and save its output."
+FR_mean[3, 1] <- "the difference between the local environment of a function and the global environment of R."
+
+# Essential Questions
+FR_mean[1, 2] <- "How do I use and write functions in R?"
+
+# Hiding NAs
+FR_mean[is.na(FR_mean)] <- ""
+
+# Create the table
+knitr::kable(FR_mean,
+             format = "html",
+             booktabs = TRUE,
+             col.names = c("Students will understand...",
+                           "Essential Questions"),
+             escape = FALSE,
+             row.names = FALSE,
+             align = "l") %>%
+  kable_styling(position = "left", font_size = 14,
+                bootstrap_options = "striped")
+
+```
+
+<br>
+
+#### Acquisition
+
+``` {r FR_acquisition, echo=FALSE}
+
+FR_acq <- data.frame(matrix(nrow=5, ncol=2))
+colnames(FR_acq) <- c("Knowledge", "Skills")
+
+# Knowledge
+FR_acq[1, 1] <- "describe the difference between local and global objects (i.e., scope)."
+FR_acq[2, 1] <- "identify the different parts of a function."
+
+# Skills
+FR_acq[1, 2] <- "specifying the arguments required for a function."
+FR_acq[2, 2] <- "return()ing an object local to a function for use in the global environment."
+FR_acq[3, 2] <- "using a list to return multiple objects local to a function for use in the global environment."
+FR_acq[4, 2] <- "writing objects to a file (e.g., .csv)."
+
+# Hiding NAs
+FR_acq[is.na(FR_acq)] <- ""
+
+# Create the table
+knitr::kable(FR_acq,
+             format = "html",
+             booktabs = TRUE,
+             col.names = c("Students will know how to...",
+                           "Students will be skilled at..."),
+             escape = FALSE,
+             row.names = FALSE,
+             align = "l") %>%
+  kable_styling(position = "left", font_size = 14,
+                bootstrap_options = "striped")
+
+```
+
+<br>
+
+### Evidence
+
+TBA 
+
+<br>
+
+### Learning plan
+
+TBA
+
+<br>
+
+# References
+
+<br>
+
+<center>*This site was last updated at `r format(Sys.time(), "%H:%M")` on `r format(Sys.Date(), "%d %b %Y")`*</center>
+
+
