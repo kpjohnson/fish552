@@ -12,6 +12,7 @@ output:
 
 # Summer 2020 Updates
 
+* FISH 552 IS CURRENTLY AT CAPACITY.
 * Check out the [Enrollment FAQ](faq.html)
 * FISH 552 is the 1st in a series of 2 courses. 
   * FISH 552 runs for 5 weeks: Wednesday 09/30/2020 to Wednesday 10/28/2020

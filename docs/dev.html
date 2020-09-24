@@ -13,6 +13,7 @@
 
 <title>Introduction to R Programming - Course Development</title>
 
+<script src="site_libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
@@ -26,6 +27,7 @@
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -381,12 +383,12 @@ div.tocify {
 <p>This section focuses on the pedagogy used to design and implement this course. The information provided here is predominantly for collaborations with fellow instructors and students are not expected to read through here (but you are more than welcome to if you are curious).</p>
 <p><br></p>
 </div>
-<div id="course-modules" class="section level1">
-<h1>Course Modules</h1>
-<p>There are 6 course modules: R Basics, Working with Data, Plotting Data, Data Manipulation, Statistics in R, and Functions. The following sections were created following the Understanding by Design (i.e., Backwards Design) framework developed by Wiggins and McTighe.</p>
+<div id="learning-objectives" class="section level1">
+<h1>Learning Objectives</h1>
+<p>There are 5 course modules: R Basics, Working with Data, Plotting Data, Data Manipulation, and Functions. The following sections were created following the Understanding by Design (i.e., Backwards Design) framework developed by Wiggins and McTighe.</p>
 <p><br></p>
-<div id="r-basics" class="section level2">
-<h2>R Basics</h2>
+<div id="module-1-r-basics" class="section level2">
+<h2>Module 1: R Basics</h2>
 <p><br></p>
 <div id="desired-results" class="section level3">
 <h3>Desired results</h3>
@@ -538,19 +540,9 @@ creating a vector.
 <p><br></p>
 </div>
 </div>
-<div id="evidence" class="section level3">
-<h3>Evidence</h3>
-<p>TBA</p>
-<p><br></p>
 </div>
-<div id="learning-plan" class="section level3">
-<h3>Learning plan</h3>
-<p>TBA</p>
-<p><br></p>
-</div>
-</div>
-<div id="working-with-data" class="section level2">
-<h2>Working with Data</h2>
+<div id="module-2-working-with-data" class="section level2">
+<h2>Module 2: Working with Data</h2>
 <p><br></p>
 <div id="desired-results-1" class="section level3">
 <h3>Desired results</h3>
@@ -758,8 +750,8 @@ replacing elements in an object (e.g., data frame, matrix, or list).
 </div>
 </div>
 </div>
-<div id="plotting-data" class="section level2">
-<h2>Plotting Data</h2>
+<div id="module-3-plotting-data" class="section level2">
+<h2>Module 3: Plotting Data</h2>
 <p><br></p>
 <div id="desired-results-2" class="section level3">
 <h3>Desired results</h3>
@@ -977,8 +969,8 @@ saving plots as a pdf().
 </div>
 </div>
 </div>
-<div id="data-manipulation" class="section level2">
-<h2>Data Manipulation</h2>
+<div id="module-4-data-manipulation" class="section level2">
+<h2>Module 4: Data Manipulation</h2>
 <p><br></p>
 <div id="desired-results-3" class="section level3">
 <h3>Desired results</h3>
@@ -1161,146 +1153,13 @@ loading a package in RStudio.
 </div>
 </div>
 </div>
-<div id="statistics-in-r" class="section level2">
-<h2>Statistics in R</h2>
+<div id="module-5-functions" class="section level2">
+<h2>Module 5: Functions</h2>
 <p><br></p>
 <div id="desired-results-4" class="section level3">
 <h3>Desired results</h3>
 <p><br></p>
 <div id="established-goals-4" class="section level4">
-<h4>Established goals</h4>
-<p>Upon completion of this module (and beyond), students will understand the following big ideas:</p>
-<ul>
-<li><p>Diligent R programmers use R help files, Google, Twitter, Stack Exchange, Stack Overflow, etc. to critically evaluate the statistical analyses provided in R packages that they did not write themselves.</p></li>
-<li><p>Think carefully about whether an analysis requires a set.seed() to be reproducible.</p></li>
-</ul>
-<p><br></p>
-</div>
-<div id="transfer-4" class="section level4">
-<h4>Transfer</h4>
-<p><em>Students will be able to independently use their learning to…</em></p>
-<ul>
-<li><p>identify useful packages for conducting statistical analyses in R.</p></li>
-<li><p>create an analysis script that is reproducible on another computer.</p></li>
-<li><p>use base R functions that produce summary statistics.</p></li>
-</ul>
-<p><br></p>
-</div>
-<div id="meaning-4" class="section level4">
-<h4>Meaning</h4>
-<table class="table table-striped" style="font-size: 14px; ">
-<thead>
-<tr>
-<th style="text-align:left;">
-Students will understand…
-</th>
-<th style="text-align:left;">
-Essential Questions
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-the importance of thoroughly investigating statistical packages.
-</td>
-<td style="text-align:left;">
-How do I prepare to conduct a statistical analysis in R?
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-that a set.seed() is required to produce reproducible random number generation in R.
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-where to find the foundational base R functions for summary statistics.
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-</div>
-<div id="acquisition-4" class="section level4">
-<h4>Acquisition</h4>
-<table class="table table-striped" style="font-size: 14px; ">
-<thead>
-<tr>
-<th style="text-align:left;">
-Students will know how to…
-</th>
-<th style="text-align:left;">
-Students will be skilled at…
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-differentiate between the functions for finding the probability, density, quantile, or random numbers from a given probability distribution.
-</td>
-<td style="text-align:left;">
-using set.seed() to create reproducible random number generation.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-locate the built-in probability distributions in R.
-</td>
-<td style="text-align:left;">
-using sample() to randomly draw elements from an object.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-define pseudorandom number generation.
-</td>
-<td style="text-align:left;">
-plotting data using pairs(), hist(), boxplot(), or density().
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-locate functions for data summarization: summary(), fivenum(), sd(), range().
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-locate functions for basic statistical tests built into R.
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-</div>
-</div>
-<div id="evidence-1" class="section level3">
-<h3>Evidence</h3>
-<p>TBA</p>
-<p><br></p>
-</div>
-<div id="learning-plan-1" class="section level3">
-<h3>Learning plan</h3>
-<p>TBA</p>
-<p><br></p>
-</div>
-</div>
-<div id="functions" class="section level2">
-<h2>Functions</h2>
-<p><br></p>
-<div id="desired-results-5" class="section level3">
-<h3>Desired results</h3>
-<p><br></p>
-<div id="established-goals-5" class="section level4">
 <h4>Established goals</h4>
 <p>Upon completion of this module (and beyond), students will understand the following big ideas:</p>
 <ul>
@@ -1310,7 +1169,7 @@ locate functions for basic statistical tests built into R.
 </ul>
 <p><br></p>
 </div>
-<div id="transfer-5" class="section level4">
+<div id="transfer-4" class="section level4">
 <h4>Transfer</h4>
 <p><em>Students will be able to independently use their learning to…</em></p>
 <ul>
@@ -1320,7 +1179,7 @@ locate functions for basic statistical tests built into R.
 </ul>
 <p><br></p>
 </div>
-<div id="meaning-5" class="section level4">
+<div id="meaning-4" class="section level4">
 <h4>Meaning</h4>
 <table class="table table-striped" style="font-size: 14px; ">
 <thead>
@@ -1360,7 +1219,7 @@ the difference between the local environment of a function and the global enviro
 </table>
 <p><br></p>
 </div>
-<div id="acquisition-5" class="section level4">
+<div id="acquisition-4" class="section level4">
 <h4>Acquisition</h4>
 <table class="table table-striped" style="font-size: 14px; ">
 <thead>
@@ -1415,23 +1274,66 @@ writing objects to a file (e.g., .csv).
 <p><br></p>
 </div>
 </div>
-<div id="evidence-2" class="section level3">
-<h3>Evidence</h3>
+</div>
+</div>
+<div id="evidence-and-assessment" class="section level1">
+<h1>Evidence and Assessment</h1>
+<div id="knowledge" class="section level2">
+<h2>Knowledge</h2>
+<ul>
+<li>Pre- and post-course assessment (Established Goals/Big Ideas for each module)</li>
+<li>Post-lecture (video) quizzes</li>
+<li>swirl assignments <br></li>
+</ul>
+</div>
+<div id="comprehension" class="section level2">
+<h2>Comprehension</h2>
+<ul>
+<li>Beginning of class Poll Everywhere Warm-Up questions <br></li>
+</ul>
+</div>
+<div id="application" class="section level2">
+<h2>Application</h2>
+<ul>
+<li>In-class coding exercises (i.e., labs) <br></li>
+</ul>
+</div>
+<div id="analysis" class="section level2">
+<h2>Analysis</h2>
+<ul>
+<li>In-class discussions (Think-Pair-Shares; Gallery Walks; Jigsaws) <br></li>
+</ul>
+</div>
+<div id="synthesis" class="section level2">
+<h2>Synthesis</h2>
+<ul>
+<li>Homework assignments <br></li>
+</ul>
+</div>
+<div id="evaluation" class="section level2">
+<h2>Evaluation</h2>
+<ul>
+<li>TBA; perhaps a homework assignment or in-class presentation <br></li>
+</ul>
+</div>
+<div id="self-assessmentstudent-reflections" class="section level2">
+<h2>Self-assessment/Student reflections</h2>
+<ul>
+<li>1 minute write at the end of each class</li>
+<li>self-grading on in-class assignments <br></li>
+</ul>
+</div>
+</div>
+<div id="lesson-plans" class="section level1">
+<h1>Lesson plans</h1>
 <p>TBA</p>
 <p><br></p>
-</div>
-<div id="learning-plan-2" class="section level3">
-<h3>Learning plan</h3>
-<p>TBA</p>
-<p><br></p>
-</div>
-</div>
 </div>
 <div id="references" class="section level1">
 <h1>References</h1>
 <p><br></p>
 <center>
-<em>This site was last updated at 20:38 on 18 Jul 2020</em>
+<em>This site was last updated at 20:59 on 23 Sep 2020</em>
 </center>
 </div>
 
@@ -1485,7 +1387,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0

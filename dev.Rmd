@@ -16,13 +16,13 @@ This section focuses on the pedagogy used to design and implement this course. T
 
 <br>
 
-# Course Modules
+# Learning Objectives
 
-There are 6 course modules: R Basics, Working with Data, Plotting Data, Data Manipulation, Statistics in R, and Functions. The following sections were created following the Understanding by Design (i.e., Backwards Design) framework developed by Wiggins and McTighe. 
+There are 5 course modules: R Basics, Working with Data, Plotting Data, Data Manipulation, and Functions. The following sections were created following the Understanding by Design (i.e., Backwards Design) framework developed by Wiggins and McTighe. 
 
 <br>
 
-## R Basics
+## Module 1: R Basics
 
 <br>
 
@@ -60,10 +60,6 @@ Upon completion of this module (and beyond), students will understand the follow
 library(kableExtra)
 library(captioner)
 
-## set default caption options
-fig_cap <- captioner(suffix = ".", style = "b", style_prefix = TRUE)
-tbl_cap <- captioner(prefix = "Table", suffix = ".",
-                     style = "b", style_prefix = TRUE)
 # Create the empty table
 RB_mean <- data.frame(matrix(nrow=3, ncol=2))
 colnames(RB_mean) <- c("Understandings", "Essential Questions")
@@ -139,19 +135,7 @@ knitr::kable(RB_acq,
 
 <br>
 
-### Evidence
-
-TBA 
-
-<br>
-
-### Learning plan
-
-TBA
-
-<br>
-
-## Working with Data
+## Module 2: Working with Data
 
 <br>
 
@@ -268,7 +252,7 @@ knitr::kable(WD_acq,
 
 ```
 
-## Plotting Data
+## Module 3: Plotting Data
 
 <br>
 
@@ -383,7 +367,7 @@ knitr::kable(PD_acq,
 ```
 
 
-## Data Manipulation
+## Module 4: Data Manipulation
 
 <br>
 
@@ -500,121 +484,7 @@ knitr::kable(DM_acq,
 
 <br>
 
-## Statistics in R
-
-<br>
-
-### Desired results
-
-<br>
-
-#### Established goals
-Upon completion of this module (and beyond), students will understand the following big ideas:
-
-* Diligent R programmers use R help files, Google, Twitter, Stack Exchange, Stack Overflow, etc. to critically evaluate the statistical analyses provided in R packages that they did not write themselves.
-
-* Think carefully about whether an analysis requires a set.seed() to be reproducible.
-
-<br>
-
-#### Transfer
-*Students will be able to independently use their learning to...*
-
-* identify useful packages for conducting statistical analyses in R.
-
-* create an analysis script that is reproducible on another computer.
-
-* use base R functions that produce summary statistics.
-
-<br>
-
-#### Meaning
-
-``` {r SR_meaning, echo=FALSE}
-
-# Create the empty table
-SR_mean <- data.frame(matrix(nrow=3, ncol=2))
-colnames(SR_mean) <- c("Understandings", "Essential Questions")
-
-# Understandings
-SR_mean[1, 1] <- "the importance of thoroughly investigating statistical packages."
-SR_mean[2, 1] <- "that a set.seed() is required to produce reproducible random number generation in R."
-SR_mean[3, 1] <- "where to find the foundational base R functions for summary statistics."
-
-# Essential Questions
-SR_mean[1, 2] <- "How do I prepare to conduct a statistical analysis in R?"
-
-# Hiding NAs
-SR_mean[is.na(SR_mean)] <- ""
-
-# Create the table
-knitr::kable(SR_mean,
-             format = "html",
-             booktabs = TRUE,
-             col.names = c("Students will understand...",
-                           "Essential Questions"),
-             escape = FALSE,
-             row.names = FALSE,
-             align = "l") %>%
-  kable_styling(position = "left", font_size = 14,
-                bootstrap_options = "striped")
-
-```
-
-<br>
-
-#### Acquisition
-
-``` {r SR_acquisition, echo=FALSE}
-
-SR_acq <- data.frame(matrix(nrow=5, ncol=2))
-colnames(SR_acq) <- c("Knowledge", "Skills")
-
-# Knowledge
-SR_acq[1, 1] <- "differentiate between the functions for finding the probability, density, quantile, or random numbers from a given probability distribution."
-SR_acq[2, 1] <- "locate the built-in probability distributions in R."
-SR_acq[3, 1] <- "define pseudorandom number generation."
-SR_acq[4, 1] <- "locate functions for data summarization: summary(), fivenum(), sd(), range()."
-SR_acq[5, 1] <- "locate functions for basic statistical tests built into R."
-
-# Skills
-SR_acq[1, 2] <- "using set.seed() to create reproducible random number generation."
-SR_acq[2, 2] <- "using sample() to randomly draw elements from an object."
-SR_acq[3, 2] <- "plotting data using pairs(), hist(), boxplot(), or density()."
-
-# Hiding NAs
-SR_acq[is.na(SR_acq)] <- ""
-
-# Create the table
-knitr::kable(SR_acq,
-             format = "html",
-             booktabs = TRUE,
-             col.names = c("Students will know how to...",
-                           "Students will be skilled at..."),
-             escape = FALSE,
-             row.names = FALSE,
-             align = "l") %>%
-  kable_styling(position = "left", font_size = 14,
-                bootstrap_options = "striped")
-
-```
-
-<br>
-
-### Evidence
-
-TBA 
-
-<br>
-
-### Learning plan
-
-TBA
-
-<br>
-
-
-## Functions
+## Module 5: Functions
 
 <br>
 
@@ -715,13 +585,40 @@ knitr::kable(FR_acq,
 
 <br>
 
-### Evidence
+# Evidence and Assessment
 
-TBA 
-
+## Knowledge
+- Pre- and post-course assessment (Established Goals/Big Ideas for each module)
+- Post-lecture (video) quizzes
+- swirl assignments
 <br>
 
-### Learning plan
+## Comprehension
+- Beginning of class Poll Everywhere Warm-Up questions
+<br>
+
+## Application
+- In-class coding exercises (i.e., labs)
+<br>
+
+## Analysis
+- In-class discussions (Think-Pair-Shares; Gallery Walks; Jigsaws)
+<br>
+
+## Synthesis
+- Homework assignments
+<br>
+
+## Evaluation
+- TBA; perhaps a homework assignment or in-class presentation
+<br>
+
+## Self-assessment/Student reflections
+- 1 minute write at the end of each class
+- self-grading on in-class assignments
+<br>
+
+# Lesson plans
 
 TBA
 
