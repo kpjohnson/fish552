@@ -47,7 +47,7 @@ Are you trying to enroll using MyPlan? Please try registering using the Registra
 
 **Are statistics covered in FISH 552?**
 
-Not explictly. Our focus will be on using R and RStudio to prepare data for statistical analysis. 
+Not explicitly. Our focus will be on using R and RStudio to prepare data for statistical analysis. 
 
 <br>
 

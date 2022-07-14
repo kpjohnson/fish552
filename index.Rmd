@@ -1,6 +1,6 @@
 ---
 title: "Introduction to R Programming - Syllabus"
-subtitle: "FISH 552 &nbsp; &nbsp; University of Washington &nbsp; &nbsp; Autumn 2021"
+subtitle: "FISH 552 &nbsp; &nbsp; University of Washington &nbsp; &nbsp; Autumn 2022"
 output:
   html_document:
     toc: true
@@ -19,7 +19,7 @@ output:
 * How to enroll: The Autumn 2021 SLN for FISH 552 is 15574
 * How to enroll: The Autumn 2021 SLN for [FISH 553](https://kpjohnson.github.io/fish553/) is 15575
 * You have to enroll in FISH 552 and 553 separately, if you want to take both.
-* You can enroll in just FISH 552 or 553 if this suits your educational goals
+* You can enroll in just FISH 552 or 553 if this suits your educational goals.
 * **This 2022 course is in-person offering.**
 
 <br>
@@ -54,11 +54,11 @@ Email: [kpjohns@uw.edu](mailto:kpjohns@uw.edu)
 # Meeting times & locations
 M/W from 11:30 am - 1:20 pm in MGH 044
 
-First class meeting: 09/29/2021 
+First class meeting: 09/28/2022 
 
-Last class meeting: 11/01/2021
+Last class meeting: 11/02/2022
 
-[Followed immediately by 10 lectures of FISH 553 Advanced R Programming from 11/03/2021 to 12/08/2021](https://kpjohnson.github.io/fish553/) (requires separate enrollment).
+[Followed immediately by 10 lectures of FISH 553 Advanced R Programming](https://kpjohnson.github.io/fish553/) (requires separate enrollment).
 
 <br>
 
